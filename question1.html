@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENDIDIKAN JASMANI OLAHRAGA KESEHATAN</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://dijogja.co/images/gallery_direktori/dijogja-candi-ganjuran-kekayaan-arsitektur-multikultural-dan-tujuan-ziarah-yang-menarik-di-yogyakarta14.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h2 {
+    font-size: 1.2em; /* Membuat ukuran font lebih besar */
+    color: #333; /* Warna teks yang kontras dan mudah dibaca */
+    font-weight: initial; /* Menebalkan teks */
+    margin-bottom: 20px; /* Memberikan jarak bawah agar tidak terlalu rapat dengan konten lainnya */
+    text-align: center; /* Menyelaraskan teks di tengah */
+   
+    
+}
+
+
+        .question-image {
+            max-width: 100%;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Gaya untuk tombol pilihan soal */
+        li {
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    background: #f8f9fa; /* Warna latar belakang default */
+    border: 2px solid #fcfeff; /* Warna border default */
+    font-size: 0.8em;
+    font-weight: lighter;
+    color: #000000; /* Warna teks default */
+    display: block; /* Pastikan li memenuhi lebar penuh */
+    width: 100%; /* Membuat li lebar penuh */
+    box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar elemen */
+}
+
+li:hover {
+    background: #1d8ecf; /* Warna latar saat hover */
+    color: #000000; /* Warna teks saat hover */
+    transform: scale(1.05); /* Efek memperbesar saat hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+}
+
+li.selected {
+    background: #1d8ecf; /* Warna latar untuk opsi yang dipilih */
+    color: #000000; /* Warna teks untuk opsi yang dipilih */
+    border-color: #1d8ecf; /* Warna border untuk opsi yang dipilih */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+}
+
+/* Gaya gambar dalam opsi */
+.option-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Menyelaraskan gambar di tengah */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan gambar */
+}
+
+
+
+        button {
+            background: #1d8ecf;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 20px 5px;
+        }
+
+        button:hover {
+            background: #218838;
+            transform: scale(1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #1d8ecf;
+        }
+
+        .question-list {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .question-list ul {
+            padding-left: 0;
+        }
+
+        .question-list li {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        /* Zoom class for the image */
+        .zoomed {
+            transform: scale(2);
+        }
+        .option-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0; /* Memberikan jarak antara gambar dan teks */
+}
+
+.text-size-controls {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px; /* Mengurangi jarak atas */
+    margin-bottom: 0px; /* Mengurangi jarak bawah */
+    margin-left: auto; /* Menempatkan elemen di sisi kanan */
+}
+
+#text-size-toggle {
+    background-color: #1d8ecf;
+    color: #fff;
+    border: none;
+    padding: 4px 8px; /* Mengurangi padding tombol untuk jarak lebih dekat */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em; /* Mengurangi ukuran font pada tombol */
+    transition: background-color 0.3s ease;
+}
+
+#text-size-toggle {
+    background-color: #1d8ecf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* Menyesuaikan padding sesuai permintaan */
+    border-radius: 5px; /* Membuat sudut tombol melengkung */
+    font-size: 1.1em; /* Ukuran font tombol sesuai dengan permintaan */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 20px 5px; /* Menambahkan margin untuk jarak antar elemen */
+}
+
+#text-size-toggle:hover {
+    background-color: #218838; /* Mengubah warna tombol saat hover */
+    transform: scale(1.05); /* Efek pembesaran saat hover */
+}
+
+#text-size-toggle:active {
+    transform: scale(0.95); /* Efek pengecilan tombol saat aktif */
+}
+
+
+#text-size-toggle:hover {
+    background-color: #082346;
+}
+
+#text-size-options {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 30px; /* Menempatkan pilihan di bawah tombol */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1;
+}
+
+#text-size-options li {
+    padding: 4px 8px; /* Mengurangi padding pada menu untuk jarak lebih dekat */
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-size: 0.9em; /* Mengurangi ukuran font pada menu */
+}
+
+#text-size-options li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mengatur scrollbar untuk seluruh halaman */
+::-webkit-scrollbar {
+    width: 20px;  /* Lebar scrollbar yang lebih besar */
+    height: 20px; /* Tinggi scrollbar horizontal */
+}
+
+/* Gaya untuk track scrollbar dengan background transparan */
+::-webkit-scrollbar-track {
+    background: transparent;  /* Background transparan */
+    border-radius: 10px;       /* Sudut melengkung pada track */
+}
+
+/* Gaya untuk thumb scrollbar (bagian yang bergerak) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF6F61, #FF9A8B, #F4A300);  /* Warna cerah seperti permen */
+    border-radius: 10px;         /* Sudut melengkung pada thumb */
+    border: 4px solid transparent;  /* Jarak antara thumb dan track */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;  /* Transisi efek */
+}
+
+/* Efek saat hover pada thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FFB6C1, #FFD700, #F1C40F);  /* Perubahan warna saat hover */
+    transform: scale(1.2);       /* Membesarkan thumb */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);  /* Bayangan yang cerah */
+}
+
+/* Efek klik pada thumb */
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(45deg, #6A5ACD, #FF6347, #32CD32);   /* Warna berubah saat klik */
+    transform: scale(1.1);        /* Sedikit memperkecil saat klik */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);  /* Bayangan dalam saat klik */
+}
+
+/* Menambahkan gaya untuk scrollbar di Firefox */
+* {
+    scrollbar-width: thin;            /* Menentukan lebar scrollbar */
+    scrollbar-color: #FF6F61 transparent;  /* Menentukan warna thumb dan track */
+}
+
+/* Efek animasi perubahan warna RGB setiap 3 detik */
+@keyframes candyColorChange {
+    0% { background-color: #FF6F61; } /* Warna awal merah cerah */
+    25% { background-color: #FF9A8B; } /* Warna pink cerah */
+    50% { background-color: #F4A300; } /* Warna kuning cerah */
+    75% { background-color: #FFB6C1; } /* Warna peach lembut */
+    100% { background-color: #FFD700; } /* Warna emas */
+}
+
+/* Menambahkan animasi ke thumb untuk perubahan warna */
+::-webkit-scrollbar-thumb {
+    animation: candyColorChange 3s infinite;  /* Warna thumb berubah setiap 3 detik */
+}
+
+/* Scrollbar horizontal (untuk konten yang dapat digulir secara horizontal) */
+::-webkit-scrollbar-horizontal {
+    height: 20px;  /* Lebar scrollbar horizontal lebih besar */
+}
+
+/* Penyesuaian di perangkat mobile */
+@media (max-width: 600px) {
+    ::-webkit-scrollbar {
+        width: 30px;  /* Lebar scrollbar lebih besar di layar kecil */
+        height: 30px; /* Lebar scrollbar horizontal lebih besar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #FF6F61, #FF9A8B, #F4A300);  /* Warna cerah seperti permen */
+        border-radius: 15px;  /* Membuat thumb lebih besar */
+    }
+
+    /* Scrollbar lebih besar saat hover */
+    ::-webkit-scrollbar-thumb:hover {
+        transform: scale(1.3);  /* Membesarkan lebih banyak */
+    }
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <span id="time">30:00</span>
+            <div id="question-number">Nomor <span id="current-question">1</span></div>
+            <!-- Tombol untuk mengubah ukuran teks -->
+
+
+        </div>
+        
+       
+        <h2 id="question"></h2>
+        
+        <img id="question-image" class="question-image" src="" alt="" style="display: none;">
+        <ul id="options"></ul>
+        <div class="navigation">
+            <button id="back">Kembali</button>
+            <button onclick="enterFullscreen()" id="next">Lanjut</button>
+            <button id="submit" style="display: none;">Kirim (lihat nilai)</button>
+            <div class="text-size-controls">
+                <button id="text-size-toggle">
+                    Ukuran Teks
+                </button>
+                <ul id="text-size-options" style="display: none;">
+                    <li id="increase-text-size">Perbesar (+)</li>
+                    <li id="decrease-text-size">Perkecil (-)</li>
+                </ul>
+            </div>
+
+            <button id="view-questions">Daftar Soal</button>
+        </div>
+        
+        
+        <div class="result" id="result" style="display: none;"></div>
+        <div class="question-list" id="question-list">
+            <h3>Daftar Soal</h3>
+            <ul></ul>
+            <button id="close-list">Tutup</button>
+        </div>
+        <!-- Tombol untuk memperbesar dan memperkecil teks -->
+
+    </div>
+    <footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            <!-- Informasi Perusahaan -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+              <h4 style="margin: 0 0 10px;">Tentang Kami</h4>
+              <p style="margin: 0;">Kami menyediakan layanan cbt terbaik untuk kebutuhan Belajar.</p>
+            </div>
+
+            <!-- Media Sosial -->
+<div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <h4 style="margin: 0 0 10px;">Ikuti Kami</h4>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <a href="https://www.facebook.com/profile.php?id=100085367364559" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F426;</a> <!-- Facebook -->
+      <a href="https://www.github.com/YohanesUser" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F4F1;</a> <!-- Twitter -->
+      <a href="https://www.instagram.com/yohanes_af_sr" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F4F6;</a> <!-- Instagram -->
+    </div>
+  </div>
+  
+      
+          <!-- Hak Cipta -->
+          <div style="margin-top: 20px; border-top: 1px solid #444; padding-top: 10px; font-size: 14px;">
+            <p style="margin: 0;">&copy; 2024 Cbt RT03 Kanutan. Semua hak dilindungi.</p>
+            <p>Beta 2.12.01</p>
+          </div>
+        </div>
+      </footer>
+      
+      <style>
+        /* Reset margin dan padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Memastikan tinggi penuh */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Tinggi body mencakup seluruh viewport */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  margin-top: auto; /* Pastikan footer selalu di bawah */
+}
+
+/* Menambahkan jarak yang cukup jauh antara footer dan elemen di atasnya */
+.content {
+  margin-bottom: 50px; /* Menambah jarak antara konten dan footer */
+}
+
+@media (min-width: 992px) {
+  footer {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  footer h4 {
+    font-size: 16px;
+  }
+  footer p {
+    font-size: 12px;
+  }
+}
+
+
+
+      </style>
+
+    <script>
+        const questions =[
+    {
+        "question": "Apa yang dimaksud dengan uang digital?",
+        "options": [
+            "A. Uang yang digunakan untuk transaksi secara langsung",
+            "B. Uang yang dapat digunakan hanya di internet",
+            "C. Uang yang tercatat secara digital dalam sistem perbankan",
+            "D. Uang yang diterima melalui cek atau giro"
+        ],
+        "answer": 2,
+        "image": "https://example.com/digital_money.jpg"
+    },
+    {
+        "question": "Apa manfaat utama dari menggunakan aplikasi perbankan di smartphone?",
+        "options": [
+            "A. Dapat melakukan transaksi tanpa harus ke bank",
+            "B. Memudahkan pencatatan keuangan pribadi",
+            "C. Hanya digunakan untuk transfer uang",
+            "D. Menghindari biaya administrasi bank"
+        ],
+        "answer": 0,
+        "image": "https://example.com/mobile_banking.jpg"
+    },
+    {
+        "question": "Bagaimana teknologi blockchain membantu sistem keuangan?",
+        "options": [
+            "A. Mempercepat proses transfer antar bank",
+            "B. Menyediakan platform untuk pencatatan transaksi yang transparan",
+            "C. Meningkatkan jumlah transaksi yang bisa dilakukan per hari",
+            "D. Mengurangi biaya untuk transaksi internasional"
+        ],
+        "answer": 1,
+        "image": "https://example.com/blockchain.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan sistem pembayaran nontunai?",
+        "options": [
+            "A. Pembayaran menggunakan uang kertas",
+            "B. Pembayaran menggunakan kartu kredit atau debit",
+            "C. Pembayaran melalui transfer fisik uang",
+            "D. Pembayaran yang dilakukan secara langsung tanpa menggunakan teknologi"
+        ],
+        "answer": 1,
+        "image": "https://example.com/non_cash_payment.jpg"
+    },
+    {
+        "question": "Apa tujuan dari literasi finansial?",
+        "options": [
+            "A. Menambah pengeluaran pribadi",
+            "B. Meningkatkan pengetahuan tentang pengelolaan keuangan",
+            "C. Menyimpan uang dalam bentuk saham",
+            "D. Meningkatkan penggunaan kartu kredit"
+        ],
+        "answer": 1,
+        "image": "https://example.com/financial_literacy.jpg"
+    },
+    {
+        "question": "Manakah yang termasuk dalam jenis transaksi keuangan digital?",
+        "options": [
+            "A. Pembayaran dengan menggunakan uang tunai",
+            "B. Pembelian barang menggunakan kartu kredit",
+            "C. Pembayaran melalui internet banking atau mobile banking",
+            "D. Mengambil uang di ATM"
+        ],
+        "answer": 2,
+        "image": "https://example.com/online_transaction.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan fintech?",
+        "options": [
+            "A. Perusahaan yang menyediakan layanan keuangan tradisional",
+            "B. Teknologi yang digunakan untuk mengubah layanan keuangan",
+            "C. Institusi yang mengatur transaksi keuangan internasional",
+            "D. Perusahaan yang hanya meminjamkan uang secara fisik"
+        ],
+        "answer": 1,
+        "image": "https://example.com/fintech.jpg"
+    },
+    {
+        "question": "Apa fungsi dari sistem pembayaran berbasis QR Code?",
+        "options": [
+            "A. Mengurangi biaya transaksi bank",
+            "B. Mempercepat proses pembayaran tanpa menggunakan uang tunai",
+            "C. Meningkatkan jumlah pelanggan di bank",
+            "D. Memudahkan pendaftaran kartu kredit"
+        ],
+        "answer": 1,
+        "image": "https://example.com/qr_payment.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan bank digital?",
+        "options": [
+            "A. Bank yang hanya ada di dunia maya dan tidak memiliki cabang fisik",
+            "B. Bank yang menggunakan teknologi untuk menawarkan layanan keuangan",
+            "C. Bank yang hanya melayani nasabah menggunakan uang digital",
+            "D. Bank yang menawarkan produk investasi dalam bentuk saham digital"
+        ],
+        "answer": 1,
+        "image": "https://example.com/digital_bank.jpg"
+    },
+    {
+        "question": "Bagaimana peran media sosial dalam transaksi keuangan masyarakat?",
+        "options": [
+            "A. Membantu dalam penarikan uang tunai",
+            "B. Meningkatkan transparansi dalam proses pembayaran",
+            "C. Memfasilitasi informasi tentang produk keuangan",
+            "D. Menghindari biaya administrasi bank"
+        ],
+        "answer": 2,
+        "image": "https://example.com/social_media_finance.jpg"
+    },
+    {
+        "question": "Manakah yang merupakan contoh dari lembaga keuangan non-bank?",
+        "options": [
+            "A. Bank Sentral",
+            "B. Perusahaan asuransi",
+            "C. Bank Komersial",
+            "D. Bank Syariah"
+        ],
+        "answer": 1,
+        "image": "https://example.com/insurance_company.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan e-wallet?",
+        "options": [
+            "A. Sistem pembayaran menggunakan kartu kredit",
+            "B. Dompet elektronik yang digunakan untuk menyimpan uang secara digital",
+            "C. Pembayaran melalui transfer bank biasa",
+            "D. Alat pembayaran berbasis tunai"
+        ],
+        "answer": 1,
+        "image": "https://example.com/ewallet.jpg"
+    },
+    {
+        "question": "Apa keuntungan menggunakan kartu kredit dalam transaksi keuangan?",
+        "options": [
+            "A. Menghindari biaya bunga",
+            "B. Memperoleh diskon dan hadiah",
+            "C. Membayar dengan cara tunai",
+            "D. Mengurangi pengeluaran belanja"
+        ],
+        "answer": 1,
+        "image": "https://example.com/credit_card.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan ekonomi digital?",
+        "options": [
+            "A. Ekonomi yang bergantung pada transaksi uang tunai",
+            "B. Ekonomi yang berbasis pada teknologi informasi dan internet",
+            "C. Ekonomi yang mengutamakan perdagangan internasional",
+            "D. Ekonomi yang mengutamakan transaksi langsung di pasar"
+        ],
+        "answer": 1,
+        "image": "https://example.com/digital_economy.jpg"
+    },
+    {
+        "question": "Apa tujuan dari sistem perbankan digital?",
+        "options": [
+            "A. Mengurangi jumlah transaksi perbankan",
+            "B. Mempermudah nasabah untuk mengakses layanan keuangan secara online",
+            "C. Membatasi penggunaan kartu kredit",
+            "D. Memperkenalkan produk investasi baru"
+        ],
+        "answer": 1,
+        "image": "https://example.com/digital_banking_services.jpg"
+    },
+    {
+        "question": "Manakah yang termasuk dalam produk investasi yang ditawarkan oleh lembaga keuangan?",
+        "options": [
+            "A. Kartu kredit",
+            "B. Deposito",
+            "C. Rekening tabungan",
+            "D. Pinjaman rumah"
+        ],
+        "answer": 1,
+        "image": "https://example.com/investment_product.jpg"
+    },
+    {
+        "question": "Apa yang dimaksud dengan pinjaman online?",
+        "options": [
+            "A. Pinjaman yang diajukan melalui aplikasi atau website",
+            "B. Pinjaman yang hanya tersedia di bank fisik",
+            "C. Pinjaman yang memerlukan jaminan properti",
+            "D. Pinjaman yang diberikan tanpa bunga"
+        ],
+        "answer": 0,
+        "image": "https://example.com/online_loan.jpg"
+    },
+    {
+        "question": "Apa fungsi dari lembaga pengawas pasar modal?",
+        "options": [
+            "A. Mengatur kurs mata uang",
+            "B. Menyediakan pinjaman untuk perusahaan",
+            "C. Mengawasi perdagangan saham dan obligasi",
+            "D. Mengatur distribusi uang di pasar internasional"
+        ],
+        "answer": 2,
+        "image": "https://example.com/market_regulator.jpg"
+    },
+    {
+        "question": "Bagaimana cara masyarakat memanfaatkan layanan perbankan digital?",
+        "options": [
+            "A. Hanya untuk menyimpan uang",
+            "B. Melakukan transaksi, pembayaran, dan pengelolaan keuangan secara online",
+            "C. Hanya untuk mentransfer uang antar bank",
+            "D. Menggunakan layanan pinjaman fisik"
+        ],
+        "answer": 1,
+        "image": "https://example.com/digital_services.jpg"
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+
+// Timer untuk kuis
+let timeRemaining = 20 * 60;
+let timerInterval = setInterval(() => {
+    timeRemaining -= 1;
+    document.getElementById('time').textContent = formatTime(timeRemaining);
+    if (timeRemaining <= 0) {
+        clearInterval(timerInterval);
+        alert('Waktu habis! Soal akan disubmit.');
+        submitQuiz();
+    }
+}, 1000);
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secondsRemaining = seconds % 60;
+    return `${minutes}:${secondsRemaining.toString().padStart(2, '0')}`;
+}
+
+// Inisialisasi variabel
+let currentPage = 1;
+const selectedAnswers = new Array(questions.length).fill(null);
+let answeredQuestions = [];
+
+// Muat soal saat ini
+function loadQuestion() {
+    const questionData = questions[currentPage - 1];
+    document.getElementById('question').textContent = questionData.question;
+
+    // Tampilkan gambar soal jika ada
+    const questionImage = document.getElementById('question-image');
+    if (questionData.image) {
+        questionImage.src = questionData.image;
+        questionImage.style.display = 'block';
+    } else {
+        questionImage.style.display = 'none';
+    }
+
+    // Tampilkan pilihan jawaban
+    const optionsElement = document.getElementById('options');
+    optionsElement.innerHTML = '';
+
+    questionData.options.forEach((option, index) => {
+        const li = document.createElement('li');
+        
+        if (option.image) {
+            const img = document.createElement('img');
+            img.src = option.image;
+            img.alt = option.alt || "Jawaban";
+            img.classList.add('option-image');
+            li.appendChild(img);
+        } else {
+            li.textContent = option.text || option;
+        }
+        
+        li.addEventListener('click', () => selectOption(index));
+        
+        if (selectedAnswers[currentPage - 1] === index) {
+            li.classList.add('selected');
+        }
+        
+        optionsElement.appendChild(li);
+    });
+
+    document.getElementById('next').style.display = (currentPage === questions.length) ? 'none' : 'inline-block';
+    document.getElementById('submit').style.display = (currentPage === questions.length) ? 'inline-block' : 'none';
+}
+
+// Pilih jawaban
+function selectOption(index) {
+    selectedAnswers[currentPage - 1] = index;
+
+    if (!answeredQuestions.includes(currentPage - 1)) {
+        answeredQuestions.push(currentPage - 1);
+    }
+
+    loadQuestion();
+}
+
+// Navigasi soal
+document.getElementById('next').addEventListener('click', () => {
+    if (currentPage < questions.length) {
+        currentPage++;
+        document.getElementById('current-question').textContent = currentPage;
+        loadQuestion();
+    }
+});
+
+document.getElementById('back').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        document.getElementById('current-question').textContent = currentPage;
+        loadQuestion();
+    }
+});
+
+// Submit kuis
+function submitQuiz() {
+    clearInterval(timerInterval);
+
+    const score = selectedAnswers.reduce((acc, answer, index) => {
+        return answer === questions[index].answer ? acc + 1 : acc;
+    }, 0);
+    
+    const totalQuestions = questions.length;
+    const percentage = (score / totalQuestions) * 100;
+
+    document.getElementById('result').innerHTML = `Skor Anda: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+    document.getElementById('result').style.display = 'block';
+    document.querySelector('.navigation').style.display = 'none';
+
+    setTimeout(() => {
+        const phoneNumber = "6289530067456";
+        const message = `Nilai (Masukkan Nama Anda) adalah: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    }, 3000);
+}
+
+document.getElementById('submit').addEventListener('click', submitQuiz);
+
+// Tampilkan daftar soal
+document.getElementById('view-questions').addEventListener('click', () => {
+    const questionListElement = document.getElementById('question-list');
+    const questionListUl = questionListElement.querySelector('ul');
+    questionListUl.innerHTML = '';
+
+    questions.forEach((_, index) => {
+        const li = document.createElement('li');
+        li.textContent = `Soal ${index + 1}`;
+        
+        if (answeredQuestions.includes(index)) {
+            li.textContent += ' - Sudah Dijawab';
+        }
+        
+        li.addEventListener('click', () => {
+            currentPage = index + 1;
+            document.getElementById('current-question').textContent = currentPage;
+            loadQuestion();
+            questionListElement.style.display = 'none';
+        });
+        
+        questionListUl.appendChild(li);
+    });
+
+    questionListElement.style.display = 'block';
+});
+
+document.getElementById('close-list').addEventListener('click', () => {
+    document.getElementById('question-list').style.display = 'none';
+});
+
+let pressTimer;
+const questionImage = document.getElementById('question-image');
+
+// Function to add zoom on mouse and touch
+function zoomIn() {
+    questionImage.classList.add('zoomed');
+}
+
+// Function to remove zoom on mouse and touch
+function zoomOut() {
+    questionImage.classList.remove('zoomed');
+}
+
+// For mouse events
+questionImage.addEventListener('mousedown', function() {
+    pressTimer = setTimeout(zoomIn, 0.00); // Start zoom after 500ms hold
+});
+
+questionImage.addEventListener('mouseup', function() {
+    clearTimeout(pressTimer); // Clear the zoom-in timer
+    zoomOut();
+});
+
+questionImage.addEventListener('mouseleave', function() {
+    clearTimeout(pressTimer); // Clear the zoom-in timer when mouse leaves
+    zoomOut();
+});
+
+// For touch events (mobile compatibility)
+questionImage.addEventListener('touchstart', function() {
+    pressTimer = setTimeout(zoomIn, 0.00); // Start zoom after 500ms touch hold
+});
+
+questionImage.addEventListener('touchend', function() {
+    clearTimeout(pressTimer); // Clear the zoom-in timer
+    zoomOut();
+});
+
+questionImage.addEventListener('touchcancel', function() {
+    clearTimeout(pressTimer); // Clear the zoom-in timer if touch is canceled
+    zoomOut();
+});
+
+// Inisialisasi pertama
+loadQuestion();
+
+// Menangani dropdown untuk mengubah ukuran teks
+const textSizeToggleButton = document.getElementById('text-size-toggle');
+const textSizeOptions = document.getElementById('text-size-options');
+const increaseTextSizeOption = document.getElementById('increase-text-size');
+const decreaseTextSizeOption = document.getElementById('decrease-text-size');
+const questionTitle = document.getElementById('question');
+const questionOptions = document.getElementById('options');
+
+// Ukuran font awal
+let titleFontSize = 1.2; // Ukuran font awal untuk h2 (em)
+let optionFontSize = 0.8; // Ukuran font awal untuk li (em)
+
+// Toggle tampilkan/ sembunyikan pilihan ukuran teks
+textSizeToggleButton.addEventListener('click', () => {
+    const isVisible = textSizeOptions.style.display === 'block';
+    textSizeOptions.style.display = isVisible ? 'none' : 'block';
+});
+
+// Fungsi untuk memperbesar teks
+increaseTextSizeOption.addEventListener('click', () => {
+    titleFontSize += 0.1; // Menambah ukuran font h2
+    optionFontSize += 0.1; // Menambah ukuran font li
+    updateTextSize(); // Memperbarui ukuran teks
+    textSizeOptions.style.display = 'none'; // Menutup dropdown setelah memilih
+});
+
+// Fungsi untuk memperkecil teks
+decreaseTextSizeOption.addEventListener('click', () => {
+    titleFontSize = Math.max(0.5, titleFontSize - 0.1); // Mengurangi ukuran font h2 (dengan batas minimum)
+    optionFontSize = Math.max(0.5, optionFontSize - 0.1); // Mengurangi ukuran font li (dengan batas minimum)
+    updateTextSize(); // Memperbarui ukuran teks
+    textSizeOptions.style.display = 'none'; // Menutup dropdown setelah memilih
+});
+
+// Fungsi untuk memperbarui ukuran teks
+function updateTextSize() {
+    questionTitle.style.fontSize = `${titleFontSize}em`; // Update ukuran teks h2
+    const options = questionOptions.getElementsByTagName('li');
+    for (let option of options) {
+        option.style.fontSize = `${optionFontSize}em`; // Update ukuran teks li
+    }
+}
+// Mencegah pemilihan teks
+document.addEventListener('selectstart', function (e) {
+    e.preventDefault(); // Menonaktifkan pemilihan teks
+});
+
+// Mencegah salin (copy)
+document.addEventListener('copy', function (e) {
+    e.preventDefault(); // Menonaktifkan aksi salin
+});
+
+// Mencegah klik kanan untuk membuka menu konteks
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault(); // Menonaktifkan menu konteks (klik kanan)
+});
+// Mencegah tombol back
+window.history.pushState(null, null, window.location.href);
+window.onpopstate = function () {
+    window.history.pushState(null, null, window.location.href);
+};
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault(); // Membatalkan event default
+    e.returnValue = ''; // Menampilkan peringatan kepada pengguna
+});
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault(); // Membatalkan event default
+    e.returnValue = 'Anda yakin ingin meninggalkan halaman ini?'; // Pesan peringatan
+});
+function goFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+}
+
+goFullscreen();
+// Menyimpan data
+function saveData() {
+    const userData = {
+        username: "JohnDoe",
+        progress: 50,
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("userData", JSON.stringify(userData));
+    console.log("Data disimpan");
+}
+
+// Mengambil data
+function loadData() {
+    const savedData = localStorage.getItem("userData");
+    if (savedData) {
+        const userData = JSON.parse(savedData);
+        console.log("Data dimuat:", userData);
+    } else {
+        console.log("Tidak ada data yang disimpan");
+    }
+}
+
+// Menghapus data
+function clearData() {
+    localStorage.removeItem("userData");
+    console.log("Data dihapus");
+}
+
+// Panggil fungsi untuk menyimpan atau memuat data
+saveData(); // Menyimpan data
+loadData(); // Mengambil data
+// Menyimpan data
+function saveSessionData() {
+    const sessionData = {
+        level: 5,
+        score: 1000
+    };
+    sessionStorage.setItem("sessionData", JSON.stringify(sessionData));
+    console.log("Data sesi disimpan");
+}
+
+// Mengambil data sesi
+function loadSessionData() {
+    const savedSessionData = sessionStorage.getItem("sessionData");
+    if (savedSessionData) {
+        const sessionData = JSON.parse(savedSessionData);
+        console.log("Data sesi dimuat:", sessionData);
+    } else {
+        console.log("Tidak ada data sesi yang disimpan");
+    }
+}
+
+// Menghapus data sesi
+function clearSessionData() {
+    sessionStorage.removeItem("sessionData");
+    console.log("Data sesi dihapus");
+}
+
+// Panggil fungsi untuk menyimpan atau memuat data sesi
+saveSessionData(); // Menyimpan data sesi
+loadSessionData(); // Mengambil data sesi
+let db;
+
+const request = indexedDB.open("userDataDB", 1);
+
+request.onsuccess = function(event) {
+    db = event.target.result;
+    console.log("Database dibuka");
+    storeData();
+};
+
+request.onerror = function(event) {
+    console.error("Error membuka database", event.target.error);
+};
+
+request.onupgradeneeded = function(event) {
+    db = event.target.result;
+    const objectStore = db.createObjectStore("users", { keyPath: "id" });
+    objectStore.createIndex("name", "name", { unique: false });
+    console.log("Object store dibuat");
+};
+
+function storeData() {
+    const transaction = db.transaction(["users"], "readwrite");
+    const objectStore = transaction.objectStore("users");
+    const userData = { id: 1, name: "John Doe", progress: 75 };
+    objectStore.add(userData);
+    console.log("Data disimpan dalam IndexedDB");
+}
+
+function getData() {
+    const transaction = db.transaction(["users"]);
+    const objectStore = transaction.objectStore("users");
+    const request = objectStore.get(1);
+    
+    request.onsuccess = function(event) {
+        console.log("Data yang diambil:", event.target.result);
+    };
+
+    request.onerror = function(event) {
+        console.error("Gagal mengambil data", event.target.error);
+    };
+}
+
+function clearData() {
+    const transaction = db.transaction(["users"], "readwrite");
+    const objectStore = transaction.objectStore("users");
+    objectStore.clear();
+    console.log("Data dihapus dari IndexedDB");
+}
+window.addEventListener("beforeunload", function(e) {
+    // Simpan data sebelum keluar
+    localStorage.setItem("userData", JSON.stringify({ username: "JohnDoe", progress: 50 }));
+});
+
+// Fungsi untuk masuk ke mode layar penuh
+function enterFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen(); // Untuk browser desktop
+    } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen(); // Firefox
+    } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen(); // Chrome, Safari, dan Opera
+    } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen(); // Internet Explorer/Edge
+    }
+}
+
+// Meminta fullscreen saat pengguna klik (misalnya klik tombol atau area tertentu)
+document.getElementById('fullscreen-btn').addEventListener('click', function() {
+    enterFullscreen();
+});
+
+
+
+
+
+    </script>
+</body>
+</html>

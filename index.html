@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login Siswa</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            <!-- Informasi Perusahaan -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+              <h4 style="margin: 0 0 10px;">Tentang Kami</h4>
+              <p style="margin: 0;">Kami menyediakan layanan cbt terbaik untuk kebutuhan Belajar.</p>
+            </div>
+
+            <!-- Media Sosial -->
+<div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <h4 style="margin: 0 0 10px;">Ikuti Kami</h4>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <a href="https://www.facebook.com/profile.php?id=100085367364559" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F426;</a> <!-- Facebook -->
+      <a href="https://www.github.com/YohanesUser" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F4F1;</a> <!-- Twitter -->
+      <a href="https://www.instagram.com/yohanes_af_sr" target="_blank" style="color: #fff; font-size: 20px; text-decoration: none;">&#x1F4F6;</a> <!-- Instagram -->
+    </div>
+  </div>
+  
+      
+          <!-- Hak Cipta -->
+          <div style="margin-top: 20px; border-top: 1px solid #444; padding-top: 10px; font-size: 14px;">
+            <p style="margin: 0;">&copy; 2024 Cbt RT03 Kanutan. Semua hak dilindungi.</p>
+          </div>
+        </div>
+      </footer>
+      
+      <style>
+        /* Reset margin dan padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Memastikan tinggi penuh */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Tinggi body mencakup seluruh viewport */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  margin-top: auto; /* Pastikan footer selalu di bawah */
+}
+
+/* Menambahkan jarak yang cukup jauh antara footer dan elemen di atasnya */
+.content {
+  margin-bottom: 50px; /* Menambah jarak antara konten dan footer */
+}
+
+@media (min-width: 992px) {
+  footer {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  footer h4 {
+    font-size: 16px;
+  }
+  footer p {
+    font-size: 12px;
+  }
+}
+
+
+
+      </style>
+
+    <script>
+        const students = [
+            { username: 'Iqbal', password: 'infomancing' },
+            { username: 'Tian', password: 'infomancing' },
+            { username: 'admin', password: 'admin' },
+            { username: 'lisa', password: 'lisa2023' },
+            { username: 'ferdi', password: 'ferdi2023' },
+            { username: 'awang', password: 'marjani' },
+            { username: 'bondan', password: 'wahyu' },
+            { username: 'cello', password: 'heru' },
+            { username: 'Zovin', password: 'andak' },
+            { username: 'bagus', password: 'kelik' },
+            { username: 'doyok', password: 'wiwit' },
+            { username: 'tara', password: 'kanisius' },
+            { username: 'yohan', password: 'supardal' },
+            { username: 'farel', password: 'btbd' },
+            { username: 'encik', password: 'pluto' },
+            { username: 'rapel', password: 'iwakkalen'},
+            { username: 'noel', password: 'ganteng'}
+
+        ];
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Cek jika user adalah admin
+            if (username === 'admin' && password === 'admin1') {
+                // Redirect ke halaman admin
+                window.location.href = 'admin.html';
+                return;
+            }
+
+            // Cek jika user adalah siswa
+            const student = students.find(student => student.username === username && student.password === password);
+
+            if (student) {
+                // Simpan nama siswa ke sessionStorage
+                sessionStorage.setItem('studentName', student.username);
+                
+                // Redirect ke dashboard siswa
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Username atau password salah');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -300,6 +300,89 @@ li.selected {
     }
 }
 
+#next {
+    position: fixed;
+    bottom: 20px;  /* Jarak dari bawah halaman */
+    padding: 10px 20px;
+    background-color: #0022e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+/* Tombol submit */
+#submit {
+    position: fixed;
+    top: 50%;  /* Menempatkan tombol di tengah vertikal */
+    left: 50%;  /* Menempatkan tombol di tengah horizontal */
+    transform: translate(-50%, -50%);  /* Menggeser tombol kembali untuk menyeimbangkan lebar dan tinggi tombol */
+    padding: 10px 20px;
+    background-color: #f80000;
+    color: white;
+    border: firebrick;
+    border-radius: 100px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+/* Responsif untuk layar lebih besar (PC) */
+@media (min-width: 992px) {
+    #submit {
+        font-size: 24px;  /* Mengurangi ukuran font pada PC */
+        padding: 10px 15px;  /* Mengurangi padding untuk menyesuaikan ukuran tombol */
+    }
+}
+
+/* Responsif untuk layar lebih kecil (mobile) */
+@media (max-width: 991px) {
+    #submit {
+        font-size: 20px;  /* Menyesuaikan ukuran font untuk perangkat lebih kecil */
+        padding: 8px 16px;  /* Mengurangi padding pada perangkat kecil */
+    }
+}
+
+
+
+#back{
+    position: fixed;
+    bottom: 20px;  /* Jarak dari bawah halaman */
+    padding: 10px 20px;
+    background-color: #00ff2a;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+#next {
+    right: 20px;  /* Jarak dari kanan halaman */
+}
+
+#submit {
+    right: 50px
+}
+
+#back {
+    left: 20px;   /* Jarak dari kiri halaman */
+}
+
+@media (min-width: 992px) {
+    #next, #back {
+        bottom: calc(20px + 50px); /* Pastikan tombol berada di atas footer */
+    }
+}
+
+
+
 
 
 
@@ -324,8 +407,8 @@ li.selected {
         <img id="question-image" class="question-image" src="" alt="" style="display: none;">
         <ul id="options"></ul>
         <div class="navigation">
-            <button id="back">Kembali</button>
-            <button onclick="enterFullscreen()" id="next">Lanjut</button>
+            <button id="back">(<)</button>
+            <button onclick="enterFullscreen()" id="next">(>)</button>
             <button id="submit" style="display: none;">Kirim (lihat nilai)</button>
             <div class="text-size-controls">
                 <button id="text-size-toggle">
@@ -1149,13 +1232,13 @@ function submitQuiz() {
     const totalQuestions = questions.length;
     const percentage = (score / totalQuestions) * 100;
 
-    document.getElementById('result').innerHTML = `Skor Anda: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+    document.getElementById('result').innerHTML = `Skor Anda, Benar: ${score} dari ${totalQuestions} (Nilai: ${percentage.toFixed(2)}%)`;
     document.getElementById('result').style.display = 'block';
     document.querySelector('.navigation').style.display = 'none';
 
     setTimeout(() => {
         const phoneNumber = "6289530067456";
-        const message = `Nilai (Masukkan Nama Anda) adalah: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        const message = `Nilai PENDIDIKAN PANCASILA: (Masukkan Nama Anda) adalah: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappURL, '_blank');
     }, 3000);

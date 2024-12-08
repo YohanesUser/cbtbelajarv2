@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENI BUDAYA</title>
+    <title>PROJOTAMANSARI</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -300,6 +300,89 @@ li.selected {
     }
 }
 
+#next {
+    position: fixed;
+    bottom: 20px;  /* Jarak dari bawah halaman */
+    padding: 10px 20px;
+    background-color: #0022e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+/* Tombol submit */
+#submit {
+    position: fixed;
+    top: 50%;  /* Menempatkan tombol di tengah vertikal */
+    left: 50%;  /* Menempatkan tombol di tengah horizontal */
+    transform: translate(-50%, -50%);  /* Menggeser tombol kembali untuk menyeimbangkan lebar dan tinggi tombol */
+    padding: 10px 20px;
+    background-color: #f80000;
+    color: white;
+    border: firebrick;
+    border-radius: 100px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+/* Responsif untuk layar lebih besar (PC) */
+@media (min-width: 992px) {
+    #submit {
+        font-size: 24px;  /* Mengurangi ukuran font pada PC */
+        padding: 10px 15px;  /* Mengurangi padding untuk menyesuaikan ukuran tombol */
+    }
+}
+
+/* Responsif untuk layar lebih kecil (mobile) */
+@media (max-width: 991px) {
+    #submit {
+        font-size: 20px;  /* Menyesuaikan ukuran font untuk perangkat lebih kecil */
+        padding: 8px 16px;  /* Mengurangi padding pada perangkat kecil */
+    }
+}
+
+
+
+#back{
+    position: fixed;
+    bottom: 20px;  /* Jarak dari bawah halaman */
+    padding: 10px 20px;
+    background-color: #00ff2a;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    display: block; /* Pastikan tombol tampil di semua perangkat */
+}
+
+#next {
+    right: 20px;  /* Jarak dari kanan halaman */
+}
+
+#submit {
+    right: 50px
+}
+
+#back {
+    left: 20px;   /* Jarak dari kiri halaman */
+}
+
+@media (min-width: 992px) {
+    #next, #back {
+        bottom: calc(20px + 50px); /* Pastikan tombol berada di atas footer */
+    }
+}
+
+
+
 
 
 
@@ -324,8 +407,8 @@ li.selected {
         <img id="question-image" class="question-image" src="" alt="" style="display: none;">
         <ul id="options"></ul>
         <div class="navigation">
-            <button id="back">Kembali</button>
-            <button onclick="enterFullscreen()" id="next">Lanjut</button>
+            <button id="back">(<)</button>
+            <button onclick="enterFullscreen()" id="next">(>)</button>
             <button id="submit" style="display: none;">Kirim (lihat nilai)</button>
             <div class="text-size-controls">
                 <button id="text-size-toggle">
@@ -425,583 +508,285 @@ footer {
 
     <script>
         const questions =[
-    {
-        "question": "Aliran seni lukis yang sama persis dengan objek yang digambar adalah...",
-        "options": [
-            "A. Ekspresionisme",
-            "B. Impresionisme",
-            "C. Realisme",
-            "D. Surealisme"
-        ],
-        "answer": 2,
-        "image": "https://example.com/realism-image.jpg"
-    },
-    {
-        "question": "Karya dari seni lukis disebut dengan...",
-        "options": [
-            "A. Sketsa",
-            "B. Abstrak",
-            "C. Lukisan",
-            "D. Goresan"
-        ],
-        "answer": 2,
-        "image": "https://example.com/painting-image.jpg"
-    },
-    {
-        "question": "Objek gambar yang terinspirasi dari bentuk-bentuk tumbuhan disebut motif...",
-        "options": [
-            "A. Fauna",
-            "B. Hewan",
-            "C. Perkampungan",
-            "D. Flora"
-        ],
-        "answer": 3,
-        "image": "https://example.com/plant-motif-image.jpg"
-    },
-    {
-    "question": "Pembuatan karya seni lukis pada gambar berikut yakni dengan cara mengekspresikan keindahan menggunakan obyek orang-orang di sekitarnya merupakan tema...",
+  {
+    "question": "Apa nama pantai yang terkenal di Bantul, DIY?",
     "options": [
-        "A. Hubungan manusia dengan dirinya",
-        "B. Hubungan manusia dengan manusia lainnya",
-        "C. Hubungan manusia dengan benda",
-        "D. Hubungan manusia dengan alam khayal"
+      "A. Pantai Parangtritis",
+      "B. Pantai Kuta",
+      "C. Pantai Samas",
+      "D. Pantai Depok"
     ],
-    "answer": 1,
-    "image": "https://github.com/YohanesUser/galeri/blob/main/Screenshot%202024-12-05%20185010.png?raw=true"
-    },
-    {
-        "question": "Teknik menggoreskan cat dengan sapuan sehingga hasilnya tampak pada kanvas disebut...",
-        "options": [
-            "A. Plakat",
-            "B. Spray",
-            "C. Melukis",
-            "D. Menggores"
-        ],
-        "answer": 2,
-        "image": "https://example.com/painting-technique.jpg"
-    },
-    {
-        "question": "Alat yang digunakan untuk mencampur cat minyak disebut...",
-        "options": [
-            "A. Standing",
-            "B. Retouch",
-            "C. Palet",
-            "D. Kuas ukuran besar"
-        ],
-        "answer": 2,
-        "image": "https://example.com/palette.jpg"
-    },
-    {
-        "question": "Orang yang membuat karya seni patung disebut...",
-        "options": [
-            "A. Pelukis",
-            "B. Penari",
-            "C. Pematung",
-            "D. Pengrajin"
-        ],
-        "answer": 2,
-        "image": "https://example.com/sculptor.jpg"
-    },
-    {
-        "question": "Goresan/ornamen yang dibuat dan terinspirasi dari bentuk hewan disebut motif...",
-        "options": [
-            "A. Figuratif",
-            "B. Flora",
-            "C. Figuratif dan konfiguratif",
-            "D. Fauna"
-        ],
-        "answer": 3,
-        "image": "https://example.com/animal-motif.jpg"
-    },
-    {
-        "question": "Patung-patung dari tanah liat yang ada di Desa Wisata Kasongan merupakan patung...",
-        "options": [
-            "A. Religi",
-            "B. Monumen",
-            "C. Sastra",
-            "D. Kerajinan"
-        ],
-        "answer": 3,
-        "image": "https://example.com/clay-sculpture.jpg"
-    },
-    {
-        "question": "Patung yang dibuat untuk kepentingan keagamaan disebut patung...",
-        "options": [
-            "A. Monumen",
-            "B. Kerajinan",
-            "C. Dekorasi",
-            "D. Religi"
-        ],
-        "answer": 3,
-        "image": "https://example.com/religious-statue.jpg"
-    },
-    {
-        "question": "Hal yang menjadi kunci dalam menciptakan desain poster untuk acara musik atau festival seni adalah...",
-        "options": [
-            "A. Menciptakan efek visual yang biasa saja",
-            "B. Menyampaikan informasi penting kepada penonton",
-            "C. Memilih jenis huruf yang sesuai dengan merk",
-            "D. Memperhatikan ukuran teks agar terlihat biasa saja"
-        ],
-        "answer": 1,
-        "image": "https://example.com/music-festival-poster.jpg"
-    },
-    {
-        "question": "Bahan patung yang cocok untuk teknik membentuk adalah...",
-        "options": [
-            "A. Semen",
-            "B. Cadas",
-            "C. Tanah Liat",
-            "D. Logam"
-        ],
-        "answer": 2,
-        "image": "https://example.com/clay-sculpture.jpg"
-    },
-    {
-        "question": "Istilah warna suara dalam musik disebut dengan...",
-        "options": [
-            "A. Tempo",
-            "B. Timbre",
-            "C. Akord",
-            "D. Vocal"
-        ],
-        "answer": 1,
-        "image": "https://example.com/music-sound.jpg"
-    },
-    {
-        "question": "Menggambar yang terinspirasi dari bentuk tumbuhan disebut menggambar...",
-        "options": [
-            "A. Surealisme",
-            "B. Fauna",
-            "C. Flora",
-            "D. Realisme"
-        ],
-        "answer": 2,
-        "image": "https://example.com/plant-drawing.jpg"
-    },
-    {
-        "question": "Sebutan untuk suara sedang pria dan suara sedang wanita berturut-turut yang benar adalah...",
-        "options": [
-            "A. Tenor dan Bariton",
-            "B. Bariton dan Alto",
-            "C. Mezo Sopran dan Alto",
-            "D. Bariton dan Mezo Sopran"
-        ],
-        "answer": 3,
-        "image": "https://example.com/voice-types.jpg"
-    },
-    {
-        "question": "Ciri lagu bertangga nada minor adalah...",
-        "options": [
-            "A. Dinyanyikan dengan riang, gembira",
-            "B. Memiliki tempo yang bersemangat",
-            "C. Memiliki tempo kurang bersemangat",
-            "D. Melodi yang dihasilkan kuat"
-        ],
-        "answer": 2,
-        "image": "https://example.com/minor-scale.jpg"
-    },
-    {
-        "question": "Melodi awal yang dinyanyikan sebelum masuk ke lagu inti adalah...",
-        "options": [
-            "A. Interlude",
-            "B. Coda",
-            "C. Ending",
-            "D. Intro"
-        ],
-        "answer": 3,
-        "image": "https://example.com/intro-melody.jpg"
-    },
-    {
-        "question": "Lagu Sorak-Sorak Bergembira dan Halo-Halo Bandung merupakan contoh lagu bertangga nada...",
-        "options": [
-            "A. Falsetto",
-            "B. Ritmis",
-            "C. Mayor",
-            "D. Minor"
-        ],
-        "answer": 2,
-        "image": "https://example.com/sorak-sorak.jpg"
-    },
-    {
-        "question": "Lagu Syukur dan Gugur Bunga merupakan contoh lagu bertangga nada...",
-        "options": [
-            "A. Tremolo",
-            "B. Soft Distortion",
-            "C. Minor",
-            "D. Major"
-        ],
-        "answer": 2,
-        "image": "https://example.com/syukur-gugur-bunga.jpg"
-    },
-    {
-        "question": "Bentuk lukisan Petrus Kanisius yang dipasang di dinding sekolah merupakan karya seni ... dimensi.",
-        "options": [
-            "A. 2",
-            "B. 3",
-            "C. 4",
-            "D. 1"
-        ],
-        "answer": 0,
-        "image": "https://example.com/petrus-kanisius-painting.jpg"
-    },
-    {
-        "question": "Deretan lagu berikut yang merupakan lagu populer adalah...",
-        "options": [
-            "A. Kicir-kicir",
-            "B. Jiwa Yang Bersedih",
-            "C. Wirang",
-            "D. Angin Mamiri"
-        ],
-        "answer": 1,
-        "image": "https://example.com/kicir-kicir.jpg"
-    },
-    {
-        "question": "Bentuk penyajian vokal grup pada gambar berikut terdiri dari 4 orang penyanyi yang disebut...",
-        "options": [
-            "A. Kuarto",
-            "B. Choir",
-            "C. Kuartet",
-            "D. Trio"
-        ],
-        "answer": 0,
-        "image": "https://example.com/vocal-group.jpg"
-    },
-    {
-        "question": "Tari pada gambar berikut merupakan contoh tari kreasi yang menggunakan tema dari binatang ...",
-        "options": [
-            "A. Kerbau",
-            "B. Merak",
-            "C. Cendrawasih",
-            "D. Kijang"
-        ],
-        "answer": 1,
-        "image": "https://th.bing.com/th/id/OIP.lUTk9iOK97-zRO1i8bt1tgHaGl?rs=1&pid=ImgDetMain"
-    },
-    {
-        "question": "Suara rendah pria dan suara sedang wanita berturut disebut...",
-        "options": [
-            "A. Tenor dan Bass",
-            "B. Bass dan Alto",
-            "C. Bass dan Mezo Sopran",
-            "D. Mezo Sopran dan Tenor"
-        ],
-        "answer": 1,
-        "image": "https://example.com/voice-range.jpg"
-    },
-    {
-    "question": "Berikut merupakan motif batik yang disebut motif...",
+    "answer": 0,
+    "image": "https://dijogja.co/images/gallery_direktori/dijogja-pantai-parangtritis-menikmati-sunset-di-pantai-eksotis-bantul51.jpeg"
+  },
+  {
+    "question": "Berapa jumlah kerajinan tembikar yang diproduksi di Desa Kasongan, Bantul, yang dikenal dengan nama 'kerajinan'?",
     "options": [
-        "A. Flora",
-        "B. Pilin",
-        "C. Tumpal",
-        "D. Fauna"
-    ],
-    "answer": 3,
-    "image": "https://github.com/YohanesUser/galeri/blob/main/Screenshot%202024-12-05%20190707.png?raw=true"
-    },
-    {
-    "question": "Gambar berikut merupakan alat musik yang memainkannya dengan cara...",
-    "options": [
-        "A. Dipukul",
-        "B. Dipetik",
-        "C. Digesek",
-        "D. Ditiup"
-    ],
-    "answer": 1,
-    "image": "https://github.com/YohanesUser/galeri/blob/main/Screenshot%202024-12-05%20191018.png?raw=true"
-    },
-    {
-        "question": "Tema yang tepat untuk pertunjukan Jathilan adalah...",
-        "options": [
-            "A. Kesedihan",
-            "B. Kesenangan",
-            "C. Permainan",
-            "D. Kepahlawanan"
-        ],
-        "answer": 3
-    },
-    {
-        "question": "Berikut ini bukan ciri-ciri tari modern, yaitu...",
-        "options": [
-            "A. Mengikuti tradisi yang ada",
-            "B. Penggarapan yang kreatif",
-            "C. Popularitas yang tidak menentu",
-            "D. Berbobot kreatif"
-        ],
-        "answer": 0
-    },
-    {
-        "question": "Orang yang memimpin jalannya orkestra disebut...",
-        "options": [
-            "A. Singer",
-            "B. Komposer",
-            "C. Konduktor",
-            "D. Arranger"
-        ],
-        "answer": 2
-    },
-    {
-        "question": "Teknik bernyanyi vokal grup dengan cara susul menyusul atau bersahut-sahutan disebut...",
-        "options": [
-            "A. Akapela",
-            "B. Kanon",
-            "C. Vokal Grup",
-            "D. Orchestra"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Ungkapan hati/aktualisasi diri/ekspresi seseorang yang dituangkan melalui nada/bunyi disebut...",
-        "options": [
-            "A. Musik",
-            "B. Ritmis",
-            "C. Melodi",
-            "D. Harmoni"
-        ],
-        "answer": 0
-    },
-    {
-        "question": "Tujuan memberikan ornamentasi pada lagu adalah membuat lagu...",
-        "options": [
-            "A. Jelas didengarkan",
-            "B. Merdu didengarkan",
-            "C. Hangat dan kaya nuansa",
-            "D. Mudah dimainkan"
-        ],
-        "answer": 2
-    },
-    {
-        "question": "Tarian yang menggunakan kebebasan dalam mengungkapkan disebut tari...",
-        "options": [
-            "A. Kreasi berpolakan tradisi",
-            "B. Tradisi berpolakan kebebasan",
-            "C. Non tradisi berpolakan kreasi",
-            "D. Kreasi baru tidak berpolakan tradisi/non tradisi"
-        ],
-        "answer": 3
-    },
-    {
-        "question": "Tari menirukan gerak binatang, aktivitas manusia dan alam, kesannya lucu, menghibur, dan mengandung unsur tebakan disebut...",
-        "options": [
-            "A. Drama tari",
-            "B. Pantomim",
-            "C. Operet",
-            "D. Opera"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Pergantian yang cepat antara not dasar dan satu not di atasnya disebut...",
-        "options": [
-            "A. Dinamika",
-            "B. Trill",
-            "C. Kadenza",
-            "D. Distorsi"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Ciri lagu dengan vokal tunggal adalah ... melodi.",
-        "options": [
-            "A. Empat",
-            "B. Dua",
-            "C. Tiga",
-            "D. Satu"
-        ],
-        "answer": 3
-    },
-    {
-    "question": "Patung berikut merupakan contoh patung...",
-    "options": [
-        "A. monumen",
-        "B. sejarah",
-        "C. religi",
-        "D. kerajinan"
+      "A. 500 buah",
+      "B. 1000 buah",
+      "C. 1500 buah",
+      "D. 2000 buah"
     ],
     "answer": 2,
-    "image": "https://orangtuaidaman.com/wp-content/uploads/2022/08/Resizer_16608293242313.jpg"
-    },
-    {
-        "question": "Karya seni lukis termasuk karya ... dimensi.",
-        "options": [
-            "A. 4",
-            "B. 1",
-            "C. 3",
-            "D. 2"
-        ],
-        "answer": 3
-    },
-    {
-        "question": "Kelemahan patung lilin adalah...",
-        "options": [
-            "A. Menyerap air",
-            "B. Lumer jika kena panas",
-            "C. Mudah patah",
-            "D. Sulit dibentuk"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Seni patung juga diartikan sebagai seni ... dimensi.",
-        "options": [
-            "A. 2",
-            "B. 4",
-            "C. 3",
-            "D. 1"
-        ],
-        "answer": 2
-    },
-    {
-        "question": "Seni lukis termasuk ke dalam jenis karya seni ... dimensi.",
-        "options": [
-            "A. Dua",
-            "B. Tiga",
-            "C. Empat",
-            "D. Satu"
-        ],
-        "answer": 0
-    },
-    {
-        "question": "Teknik pewarnaan yang digunakan untuk menonjolkan kesan volume pada seni lukis disebut...",
-        "options": [
-            "A. Plakat",
-            "B. Transparan",
-            "C. Blok",
-            "D. Gradasi"
-        ],
-        "answer": 3
-    },
-    {
-        "question": "Bahan yang sering digunakan dalam seni patung modern adalah...",
-        "options": [
-            "A. Batu",
-            "B. Kayu",
-            "C. Logam",
-            "D. Semua benar"
-        ],
-        "answer": 3
-    },
-    {
-        "question": "Jenis patung yang dibuat untuk mengenang jasa seseorang disebut...",
-        "options": [
-            "A. Dekorasi",
-            "B. Religi",
-            "C. Monumen",
-            "D. Kerajinan"
-        ],
-        "answer": 2
-    },
-    {
-        "question": "Aliran seni lukis yang menggambarkan objek secara realistik disebut...",
-        "options": [
-            "A. Abstraksionisme",
-            "B. Realisme",
-            "C. Ekspresionisme",
-            "D. Kubisme"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Patung dari bahan tanah liat biasanya dibentuk menggunakan teknik...",
-        "options": [
-            "A. Memahat",
-            "B. Membentuk",
-            "C. Mengukir",
-            "D. Menyusun"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Teknik menggoreskan cat dengan sapuan sehingga tampak tebal disebut...",
-        "options": [
-            "A. Spray",
-            "B. Plakat",
-            "C. Pointilis",
-            "D. Impasto"
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Berikut ini adalah gambar teknik dasar melukis. Pilihlah teknik yang benar untuk menciptakan kesan gradasi.",
-        "options": [
-            {
-                "option": "A",
-                "image": "https://th.bing.com/th/id/OIP.dFImiPrUyFa1PrLBflKpogHaE8?rs=1&pid=ImgDetMain"
-            },
-            {
-                "option": "B",
-                "image": "https://hypeabis.id/assets/content/20230320133610000000MELUKISBIJAT26TRANSJAKARTA220221201052227201.jpg"
-            },
-            {
-                "option": "C",
-                "image": "https://ik.trn.asia/uploads/2020/02/1582874093839.jpeg"
-            },
-            {
-                "option": "D",
-                "image": "https://i.ytimg.com/vi/iU2cOwbWDr4/hqdefault.jpg"
-            }
-        ],
-        "answer": 1
-    },
-    {
-        "question": "Manakah gambar yang menunjukkan contoh patung monumen?",
-        "options": [
-            {
-                "option": "A",
-                "image": "https://l450v.alamy.com/450v/2p8pwmc/bantul-yogyakarta-indonesia-9th-mar-2023-workers-are-finishing-making-catholic-spiritual-goods-at-the-malta-jaya-catholic-spiritual-goods-production-house-bantul-yogyakarta-indonesia-thursday-march-9-2023-this-catholic-spiritual-goods-production-house-has-increased-its-orders-ahead-of-easter-credit-image-slamet-riyadizuma-press-wire-editorial-usage-only!-not-for-commercial-usage!-2p8pwmc.jpg"
-            },
-            {
-                "option": "B",
-                "image": "https://example.com/path-to-patung2.jpg"
-            },
-            {
-                "option": "C",
-                "image": "https://img.okezone.com/content/2019/09/23/406/2108399/5-patung-dan-monumen-ikonik-di-surabaya-keren-untuk-foto-foto-ZjxFstskI0.jpg"
-            },
-            {
-                "option": "D",
-                "image": "https://github.com/YohanesUser/galeri/blob/main/snapedit_1733375535661.jpeg?raw=true"
-            }
-        ],
-        "answer": 2
-    },
-    {
-    "question": "Berikut adalah gambar berbagai jenis alat musik. Pilihlah alat musik yang dimainkan dengan cara ditapuk.",
+    "image": "https://campatour.com/wp-content/uploads/2023/12/5-Daya-Tarik-Desa-Wisata-Gerabah-Kasongan.jpg"
+  },
+  {
+    "question": "Berapa lama waktu yang diperlukan untuk mencapai Pantai Parangtritis dari pusat kota Yogyakarta?",
     "options": [
-        {
-            "option": "A",
-            "image": "https://th.bing.com/th/id/OIP.CI345CMa1-C7cu74g-u2RgHaEK?rs=1&pid=ImgDetMain"
-        },
-        {
-            "option": "B",
-            "image": "https://th.bing.com/th/id/OIP.Sk_FaPCBl8WuHJi2uAfoywHaLJ?rs=1&pid=ImgDetMain"
-        },
-        {
-            "option": "C",
-            "image": "https://th.bing.com/th/id/OIP.34io6ThBflrMkgLfDj8DEAHaEK?rs=1&pid=ImgDetMain"
-        },
-        {
-            "option": "D",
-            "image": "https://i.ytimg.com/vi/Q4DpTGWBfwQ/maxresdefault.jpg"
-        }
+      "A. 30 menit",
+      "B. 1 jam",
+      "C. 2 jam",
+      "D. 3 jam"
+    ],
+    "answer": 1,
+    "image": "https://happytour.id/wp-content/uploads/2018/07/PantaiParangtritis2.jpg"
+  },
+  {
+    "question": "Apa nama tempat wisata alam yang terkenal dengan hutan pinus di Bantul?",
+    "options": [
+      "A. Hutan Pinus Imogiri",
+      "B. Hutan Pinus Mangunan",
+      "C. Hutan Pinus Kaliurang",
+      "D. Hutan Pinus Tegalrejo"
+    ],
+    "answer": 1,
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLP35Iv_xQvF_U775DW1yNleG2c3gGhkiLABPdEYPilNYujP3dquc5v7efLoDof1iBsFCbJPmqtpXW0az_zRqiauqJfTcpLqPp4_Em7MM8SH89HZ21btV5T7uh3vUHwIUTs4I_cR3Y_LGmXbUWnIasTom6Y7R6TAPjK0kmYMoaaTT9T1OSMYSNKmye/s1776/2022_1122_12133400.jpg"
+  },
+  {
+    "question": "Apa makanan khas yang paling terkenal dari Kabupaten Bantul?",
+    "options": [
+      "A. Gudeg",
+      "B. Sate Klathak",
+      "C. Nasi Goreng",
+      "D. Ayam Penyet"
+    ],
+    "answer": 1,
+    "image": "https://i2.wp.com/www.njogja.co.id/wp-content/uploads/2014/07/wisata-murah-jogha-klatak.jpg?fit=1600%2C1067&ssl=1"
+  },
+  {
+    "question": "Apa nama pantai yang terkenal di BANTUL SELATAN (BAGIAN TENGAH), DIY?",
+    "options": [
+      "A. Pantai Parangtritis",
+      "B. Pantai Samas",
+      "C. Pantai Depok",
+      "D. Pantai Glagah"
+    ],
+    "answer": 1,
+    "image": "https://th.bing.com/th/id/OIP.LjRyaLLS8jmRu53lTPsW-AAAAA?w=474&h=355&rs=1&pid=ImgDetMain"
+  },
+  {
+    "question": "Apa nama objek wisata di Bantul yang terkenal dengan spot foto di tebing dan pemandangan sungai oya?",
+    "options": [
+      "A. Taman Sari",
+      "B. Bukit Panguk Kediwung",
+      "C. Goa Selarong",
+      "D. Candi Prambanan"
+    ],
+    "answer": 1,
+    "image": "https://th.bing.com/th/id/OIP.bVqyaWPZwTGWRRDwX-PXxwHaE-?rs=1&pid=ImgDetMain"
+  },
+  {
+    "question": "Berapa banyak orang yang terlihat dalam gambar ini?",
+    "options": [
+      "A. 3",
+      "B. 5",
+      "C. 7",
+      "D. 6"
+    ],
+    "answer": 3,
+    "image": "https://img.inews.co.id/media/600/files/inews_new/2022/12/25/candi_ganjuran.jpg"
+  },
+  {
+    "question": "Apa nama pasar yang terkenal di Bantul Dan hanya buka di pasaran Pahing",
+    "options": [
+      "A. Pasar Gumulan",
+      "B. Pasar Bantul",
+      "C. Pasar Turi",
+      "D. Pasar Beringharjo"
+    ],
+    "answer": 2,
+    "image": "https://i.ytimg.com/vi/69z44bLLcfE/maxresdefault.jpgg"
+  },
+  {
+    "question": "Apa Kapanewon yang paling terkenal dari Candi  Ganjuran Kabupaten Bantul?",
+    "options": [
+      "A. Kapanewon Bambanglipuro",
+      "B. Kapanewon Banguntapan",
+      "C. kapanewon Kretek",
+      "D. kapanewon Piyungan"
+    ],
+    "answer": 0,
+    "image": "https://asset.kompas.com/crops/lVu6_8vxIpv2tmZnbaJQeNOiBfc=/0x0:0x0/780x390/filters:watermark(data/photo/2020/03/10/5e6775cf5d848.png,0,-0,1)/data/photo/2021/03/28/60606082e414b.jpg"
+  },
+  {
+    "question": "Di Bantul, terdapat sebuah Landasan Pacu pesawat milik TNI AU Adjisucipto (dimanakah itu?)",
+    "options": [
+      "A. Pantai Glagah",
+      "B. Pantai Depok",
+      "C. Pantai Parangtritis",
+      "D. Pantai Samas"
+    ],
+    "answer": 1,
+    "image": "https://asset-2.tstatic.net/jogja/foto/bank/images/Jogja-Air-Show-Kembali-Digelar-Setelah-Absen-Dua-Tahun-karena-Pandemi.jpg"
+  },
+  {
+    "question": "Apa nama desa di Bantul yang terkenal dengan kerajinan gerabah?",
+    "options": [
+      "A. Desa Kasongan",
+      "B. Desa Imogiri",
+      "C. Desa Parangtritis",
+      "D. Desa Gamping"
+    ],
+    "answer": 0,
+    "image": "https://example.com/images/kasongan.jpg"
+  },
+  {
+    "question": "Apa nama air terjun yang terkenal di Bantul?",
+    "options": [
+      "A. Air Terjun Tumpak Sewa",
+      "B. Air Terjun Sikunir",
+      "C. Air Terjun Penawangan Srunggo",
+      "D. Air Terjun Sumber Pitu"
+    ],
+    "answer": 2,
+    "image": "https://loka-pedia.com/storage/2023/10/AF1QipPsfXiEe_gF3cGsE-PUjAM9aeLgK9qOaq6rF20fw800-h600-k-no.jpeg"
+  },
+  {
+    "question": "Apa nama hutan pinus yang terkenal di Bantul, sering digunakan untuk berfoto?",
+    "options": [
+      "A. Hutan Pinus Imogiri",
+      "B. Hutan Pinus Kaliurang",
+      "C. Hutan Pinus Mangunan",
+      "D. Hutan Pinus Merapi"
+    ],
+    "answer": 2,
+    "image": "https://example.com/images/hutan_pinus_mangunan.jpg"
+  },
+  {
+    "question": "Kabupaten Bantul memiliki objek wisata yang terkenal dengan pemandangan matahari terbenam di pantai. Apa nama pantai tersebut?",
+    "options": [
+      "A. Pantai Depok",
+      "B. Pantai Samas",
+      "C. Pantai Parangtritis",
+      "D. Pantai Glagah"
+    ],
+    "answer": 2,
+    "image": "https://example.com/images/pantai_parangtritis_sunset.jpg"
+  },
+  {
+    "question": "Gambar manakah yang menunjukkan Gambar Bupati yang menjabat & terpilih di pilkada 2024?",
+    "options": [
+      {
+        "label": "A",
+        "image": "https://th.bing.com/th/id/OIP.O5HVF9lEKH28ybe7NEyjUwHaE8?rs=1&pid=ImgDetMain"
+      },
+      {
+        "label": "B",
+        "image": "https://asset-2.tstatic.net/jogja/foto/bank/images/Ketua-DPC-PKB-Bantul-Abdul-Halim-Muslih-sedang-menanggapi-persoalan-Pilkada-2024-1642024.jpg"
+      },
+      {
+        "label": "C",
+        "image": "https://www.gerejaganjuran.org/assets/img/article/025ee4b473addd4a53bcded653be06cc.JPG"
+      },
+      {
+        "label": "D",
+        "image": "https://th.bing.com/th/id/OIP.X6alzBSodO1ObiqrKGtHmQAAAA?rs=1&pid=ImgDetMain"
+      }
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Gambar manakah yang menunjukkan simbol Kabupaten Bantul?",
+    "options": [
+      {
+        "label": "A",
+        "image": "https://logodix.com/logo/2108823.png"
+      },
+      {
+        "label": "B",
+        "image": "https://th.bing.com/th/id/OIP.xz3ilFPVcK1JN6aoH3HKqgHaFQ?rs=1&pid=ImgDetMain"
+      },
+      {
+        "label": "C",
+        "image": "https://iconlogovector.com/uploads/images/2023/06/md-9bafdaeafd440e8d523d67925d7cedf266.jpg"
+      },
+      {
+        "label": "D",
+        "image": "https://e7.pngegg.com/pngimages/691/734/png-clipart-logo-lambang-daerah-istimewa-yogyakarta-cdr-pemerintah-kota-yogyakarta-others-miscellaneous-emblem.png"
+      }
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Gambar manakah yang menunjukkan Bupati Bantul 2006 (saat gempa)?",
+    "options": [
+      {
+        "label": "A",
+        "image": "https://example.com/images/pinus1.jpg"
+      },
+      {
+        "label": "B",
+        "image": "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1634025439/01hg84qzj4f7n9z93k060zr1wm.jpg"
+      },
+      {
+        "label": "C",
+        "image": "https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p2/124/2023/10/06/06idham-3811136786.jpg"
+      },
+      {
+        "label": "D",
+        "image": "https://th.bing.com/th/id/OIP.0vLOp0MmLrFUxaRVM4URfQHaEP?rs=1&pid=ImgDetMain"
+      }
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Gambar manakah yang menunjukkan pemandangan Pantai Parangtritis di Bantul?",
+    "options": [
+      {
+        "label": "A",
+        "image": "https://th.bing.com/th/id/OIP.Vsj4BMVUJFxA0twEp5eFGwHaE0?rs=1&pid=ImgDetMain"
+      },
+      {
+        "label": "B",
+        "image": "https://i1.wp.com/liburmulu.com/wp-content/uploads/2016/01/Pulau-Karang-di-Pantai-Kukup.jpg"
+      },
+      {
+        "label": "C",
+        "image": "https://th.bing.com/th/id/OIP.OiwFDR88tnNt_QjIaeZ2vwHaJQ?rs=1&pid=ImgDetMain"
+      },
+      {
+        "label": "D",
+        "image": "https://th.bing.com/th/id/OIP.N82T7bmRZ6YVX7EswVt3dgHaE8?rs=1&pid=ImgDetMain"
+      }
     ],
     "answer": 3
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+  },
+  {
+    "question": "Gambar manakah yang menunjukkan hasil kerajinan Sepatu & Tas Kulit Manding di Bantul?",
+    "options": [
+      {
+        "label": "A",
+        "image": "https://www.jogjaspace.com/wp-content/uploads/2017/08/kerajinan-tanah-liat-kasongan.jpg"
+      },
+      {
+        "label": "B",
+        "image": "https://img.kontenjatim.id/articles/archive_20230912/sound-horeg-20230912-160244.jpg"
+      },
+      {
+        "label": "C",
+        "image": "https://kissparry.com/wp-content/uploads/2017/04/manding-edward.jpg"
+      },
+      {
+        "label": "D",
+        "image": "https://th.bing.com/th/id/OIP.iwWv4ICv6-fz6kqJr63tvAHaHa?rs=1&pid=ImgDetMain"
+      }
+    ],
+    "answer": 2
+  }
 ]
+
+
+
 
 
 
@@ -1025,7 +810,7 @@ footer {
 ;
 
 // Timer untuk kuis
-let timeRemaining = 30 * 60;
+let timeRemaining = 15 * 60;
 let timerInterval = setInterval(() => {
     timeRemaining -= 1;
     document.getElementById('time').textContent = formatTime(timeRemaining);
@@ -1130,13 +915,13 @@ function submitQuiz() {
     const totalQuestions = questions.length;
     const percentage = (score / totalQuestions) * 100;
 
-    document.getElementById('result').innerHTML = `Skor Anda: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+    document.getElementById('result').innerHTML = `Skor Anda, Benar: ${score} dari ${totalQuestions} (Nilai: ${percentage.toFixed(2)}%)`;
     document.getElementById('result').style.display = 'block';
     document.querySelector('.navigation').style.display = 'none';
 
     setTimeout(() => {
         const phoneNumber = "6289530067456";
-        const message = `Nilai (Masukkan Nama Anda) adalah: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        const message = `Nilai PROJOTAMANSARI: (Masukkan Nama Anda) adalah: ${score} dari ${totalQuestions} (${percentage.toFixed(2)}%)`;
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappURL, '_blank');
     }, 3000);
